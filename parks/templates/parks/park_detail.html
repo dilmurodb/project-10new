@@ -1,0 +1,29 @@
+{% extends 'parks/base.html' %} {% block content %}
+<h2>
+  {{ park.name }}
+  <a href="{% url 'park_edit' pk=park.pk %}">(Press here to edit)</a>
+</h2>
+<h2>
+  {{ park.name }}
+  <a href="{% url 'park_delete' pk=park.pk %}"
+    >(Press here to delete the Park)</a
+  >
+</h2>
+<h4>Location of the Park: {{ park.state }}</h4>
+<h4>{{ park.description }}</h4>
+
+<img src="{{ park.photo_url }}" alt="" class="park-photo" />
+
+<h3>
+  Comments <a href="{% url 'comment_create' %}">(Add your comment here)</a>
+</h3>
+<ul>
+  {% for song in artist.songs.all %}
+  <li>
+    <a href="{% url 'comment_detail' pk=comment.pk %}"
+      >{{ comment.title }}-{{ comment.body }}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

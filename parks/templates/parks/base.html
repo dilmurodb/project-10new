@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+  <head>
+    <title>National Parks</title>
+    <link rel="stylesheet" href="{% static 'css/parks.css' %}" />
+  </head>
+  <body>
+    <h1>National Parks</h1>
+    <nav>
+      <a href="/comments">Comments</a>
+      <a href="/">Parks List</a>
+    </nav>
+    {% block content %} {% endblock %}
+    <!-- <img src="{{ park.photo_url }}" alt="Picture of {{park.photo_url}}" /> -->
+  </body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'parks/base.html' %} {% block content %}
+<h2>Parks <a href="{% url 'park_create' %}">(Press here to add Parks)</a></h2>
+<ul>
+  {% for park in parks %}
+  <li>
+    <a href="{% url 'park_detail' pk=park.id %}">{{ park.name }}</a>
+  </li>
+  <img
+    src="{{ park.photo_url }}"
+    alt="Picture of {{park.photo_url}}"
+    class="parklist-photo"
+  />
+  {% endfor %}
+</ul>
+{% endblock %}
